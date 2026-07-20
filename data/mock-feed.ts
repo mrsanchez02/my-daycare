@@ -28,9 +28,9 @@ export type FeedHomeMock = {
     initial: string;
   };
   navItems: Array<{
-    id: string;
+    id: "feed" | "children" | "announcements" | "account";
     label: string;
-    isActive: boolean;
+    href?: string;
   }>;
   posts: FeedPost[];
 };
@@ -49,22 +49,20 @@ export const feedHomeMock: FeedHomeMock = {
     {
       id: "feed",
       label: "Feed",
-      isActive: true,
+      href: "/",
     },
     {
       id: "children",
       label: "Niños",
-      isActive: false,
+      href: "/kids",
     },
     {
       id: "announcements",
       label: "Avisos",
-      isActive: false,
     },
     {
       id: "account",
       label: "Mi cuenta",
-      isActive: false,
     },
   ],
   posts: [

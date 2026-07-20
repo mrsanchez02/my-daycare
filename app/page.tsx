@@ -15,6 +15,7 @@ export default function Home() {
           classroomLabel={feedHomeMock.classroomLabel}
           teacher={feedHomeMock.teacher}
           navItems={feedHomeMock.navItems}
+          activeItemId="feed"
         />
       }
       mobileSidebar={
@@ -23,6 +24,7 @@ export default function Home() {
           classroomLabel={feedHomeMock.classroomLabel}
           teacher={feedHomeMock.teacher}
           navItems={feedHomeMock.navItems}
+          activeItemId="feed"
           compact
         />
       }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FeedHomeMock } from "@/data/mock-feed";
 import {
   BellIcon,
@@ -14,6 +15,7 @@ type HomeSidebarProps = {
   classroomLabel: FeedHomeMock["classroomLabel"];
   teacher: FeedHomeMock["teacher"];
   navItems: FeedHomeMock["navItems"];
+  activeItemId: FeedHomeMock["navItems"][number]["id"];
   compact?: boolean;
 };
 
@@ -24,7 +26,14 @@ const navIcons = {
   account: UserIcon,
 };
 
-export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, compact = false }: HomeSidebarProps) {
+export function HomeSidebar({
+  schoolLabel,
+  classroomLabel,
+  teacher,
+  navItems,
+  activeItemId,
+  compact = false,
+}: HomeSidebarProps) {
   return (
     <div className={["flex w-full flex-col", compact ? "gap-3" : "gap-4"].join(" ")}>
       <div className={compact ? "flex items-center justify-between gap-3" : "flex items-center gap-3 px-2 pb-2"}>
@@ -65,22 +74,32 @@ export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, co
       <nav className={compact ? "flex items-center gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" : "flex flex-1 flex-col gap-1"} aria-label="Navegación principal">
         {navItems.map((item) => {
           const Icon = navIcons[item.id as keyof typeof navIcons];
-
-          return (
-            <button
-              key={item.id}
-              type="button"
-              className={[
-                "flex items-center gap-3 rounded-xl px-3 py-[11px] text-[14.5px]",
-                compact ? "shrink-0 whitespace-nowrap border border-[#ead9c6] bg-[#fffdf9]" : "w-full",
-                item.isActive
-                  ? "bg-[#fbe3d8] font-extrabold text-[#d9583c]"
-                  : "bg-transparent font-semibold text-[#6e6359]",
-              ].join(" ")}
-            >
+          const className = [
+            "flex items-center gap-3 rounded-xl px-3 py-[11px] text-[14.5px]",
+            compact ? "shrink-0 whitespace-nowrap border border-[#ead9c6] bg-[#fffdf9]" : "w-full",
+            item.id === activeItemId
+              ? "bg-[#fbe3d8] font-extrabold text-[#d9583c]"
+              : "bg-transparent font-semibold text-[#6e6359]",
+          ].join(" ");
+          const content = (
+            <>
               <Icon className="size-[19px]" />
               <span>{item.label}</span>
-            </button>
+            </>
+          );
+
+          if (!item.href) {
+            return (
+              <button key={item.id} type="button" className={className}>
+                {content}
+              </button>
+            );
+          }
+
+          return (
+            <Link key={item.id} href={item.href} className={className}>
+              {content}
+            </Link>
           );
         })}
       </nav>

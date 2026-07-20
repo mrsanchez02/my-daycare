@@ -1,6 +1,6 @@
 # SPEC 01 — Home visual inspirado en feed de OpenDayCare
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** jose Sanchez
 > **Date:** 2026-07-20
 > **Objective:** Reemplazar el home actual en `/` por una versión visual en Next.js y Tailwind que replique lo más fielmente posible la pantalla `references/pantallas/feed.dc.html`, usando datos mock locales y una UI componetizada dentro de `components/` con subcarpetas explícitas por dominio y piezas compartidas, sin implementar autenticación, base de datos ni navegación funcional.
@@ -87,17 +87,17 @@ Convenciones:
 
 ## Acceptance criteria
 
-- [ ] La ruta `/` deja de mostrar el contenido por defecto de Next.js y pasa a renderizar un home inspirado en `references/pantallas/feed.dc.html`.
-- [ ] La UI del home está dividida en componentes dentro de `components/` con subcarpetas semánticas, incluyendo al menos `components/shared/` y `components/home/`.
-- [ ] El contenido ficticio del home vive en `data/mock-feed.ts` y no está duplicado inline en múltiples componentes.
-- [ ] `app/layout.tsx` carga `Fredoka` y `Nunito` para aproximar la tipografía del diseño de referencia.
-- [ ] En escritorio el layout muestra sidebar lateral, cabecera de saludo, compositor visual y lista de publicaciones con estilo coherente al mock.
-- [ ] En móvil la sidebar no se mantiene fija ocupando el lateral completo y se presenta en una variante compacta usable.
-- [ ] Los botones, enlaces y acciones visibles del home no intentan navegar a rutas inexistentes ni ejecutar lógica de negocio.
-- [ ] La tarjeta con foto se representa como placeholder visual sin depender de imágenes reales.
-- [ ] `npm run lint` finaliza sin errores.
-- [ ] `npx tsc --noEmit` finaliza sin errores.
-- [ ] `npm run build` finaliza sin errores.
+- [x] La ruta `/` deja de mostrar el contenido por defecto de Next.js y pasa a renderizar un home inspirado en `references/pantallas/feed.dc.html`.
+- [x] La UI del home está dividida en componentes dentro de `components/` con subcarpetas semánticas, incluyendo al menos `components/shared/` y `components/home/`.
+- [x] El contenido ficticio del home vive en `data/mock-feed.ts` y no está duplicado inline en múltiples componentes.
+- [x] `app/layout.tsx` carga `Fredoka` y `Nunito` para aproximar la tipografía del diseño de referencia.
+- [x] En escritorio el layout muestra sidebar lateral, cabecera de saludo, compositor visual y lista de publicaciones con estilo coherente al mock.
+- [x] En móvil la sidebar no se mantiene fija ocupando el lateral completo y se presenta en una variante compacta usable.
+- [x] Los botones, enlaces y acciones visibles del home no intentan navegar a rutas inexistentes ni ejecutar lógica de negocio.
+- [x] La tarjeta con foto se representa como placeholder visual sin depender de imágenes reales.
+- [x] `npm run lint` finaliza sin errores.
+- [x] `npx tsc --noEmit` finaliza sin errores.
+- [x] `npm run build` finaliza sin errores.
 
 ## Decisions
 

@@ -12,6 +12,7 @@
 - Focused lint: `npm run lint -- app/page.tsx`
 - There is no `test` script and no `typecheck` script. Use `npx tsc --noEmit` for TS verification.
 - Full pre-handoff verification: `npm run lint`, `npx tsc --noEmit`, then `npm run build`
+- Spec verification command: `/verify-spec <spec-identifier> [--fix|--report-only]`
 
 ## Styling And Structure
 
@@ -25,3 +26,5 @@
 - Playwright MCP is enabled in `opencode.json`. Keep screenshots and Playwright artifacts under `.playwright-mcp/`; that directory is gitignored.
 - Context7 MCP is enabled in  `opencode.json`. use it to fetch current framework docs instead of relying on training data.
 - Repo-local `/spec` and `/spec-impl` skills are installed under `.agents/skills/`. Use them for larger spec-driven work instead of inventing a new flow.
+- Project-local agent `spec-acceptance-verifier` is available via `.opencode/agents/spec-acceptance-verifier.md`.
+- Project-local command `/verify-spec` uses `spec-acceptance-verifier` to validate a spec's acceptance criteria, fix mismatches by default, use Context7 for Next.js checks, and use Playwright for visual validation.

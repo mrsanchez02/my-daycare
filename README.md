@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open Daycare
 
-## Getting Started
+Next.js 16 App Router project with a spec-driven workflow for defining, implementing, and verifying features.
 
-First, run the development server:
+## Requirements
+
+- Node.js compatible with this project's Next.js setup
+- npm
+
+## Commands
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npx tsc --noEmit
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+```
 
-## Learn More
+2. Start the development server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Open [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Verification
 
-## Deploy on Vercel
+Run the standard project verification before handoff:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Spec Workflow
+
+This repo includes local skills and commands for a spec-driven process:
+
+- `/spec` creates and refines specs under `specs/`
+- `/spec-impl` implements an approved spec
+- `/verify-spec` verifies acceptance criteria against the current codebase
+
+### Verify a spec
+
+```text
+/verify-spec <spec-identifier>
+/verify-spec <spec-identifier> --fix
+/verify-spec <spec-identifier> --report-only
+```
+
+Behavior:
+
+- Uses the project agent `spec-acceptance-verifier`
+- Resolves specs by file name, numeric prefix, or slug fragment
+- Treats `Acceptance criteria` as the source of truth
+- Fixes code/spec mismatches by default in `--fix` mode
+- Uses Context7 for Next.js-specific checks
+- Uses Playwright for visual and responsive validation when needed
+
+## Project Automation
+
+- Agent: `.opencode/agents/spec-acceptance-verifier.md`
+- Command: `.opencode/commands/verify-spec.md`
+- Repo guidance: `AGENTS.md`

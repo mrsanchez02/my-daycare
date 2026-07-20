@@ -32,6 +32,8 @@ const linkedParentStatusLabels: Record<KidProfile["linkedParents"][number]["stat
 };
 
 export function KidProfileView({ kid }: KidProfileProps) {
+  const linkParentLabel = kid.linkedParents.length > 0 ? "Vincular otro padre" : "Vincular padre";
+
   return (
     <section>
       <Link href="/kids" className="mb-5 inline-flex items-center gap-[7px] text-sm font-bold text-[#94887b]">
@@ -141,7 +143,7 @@ export function KidProfileView({ kid }: KidProfileProps) {
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-full border-[1.5px] border-dashed border-[#d8cbba] text-[#b0a290]">
                   <PlusIcon className="size-[18px]" />
                 </span>
-                <span className="text-[14.5px] font-extrabold text-[#c5503a]">Vincular otro padre</span>
+                <span className="text-[14.5px] font-extrabold text-[#c5503a]">{linkParentLabel}</span>
               </button>
             </div>
           </div>

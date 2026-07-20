@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference fixtures are not part of the Next app source.
+    "references/**",
   ]),
 ]);
 

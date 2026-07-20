@@ -45,7 +45,7 @@ export function FeedPostCard({ post }: FeedPostCardProps) {
   const usesAnnouncementIcon = post.tag === "announcement";
 
   return (
-    <article className="rounded-[20px] border border-[#ece0d0] bg-[#fffdf9] px-[22px] py-5 shadow-[0_4px_16px_-12px_rgba(120,90,60,0.5)]">
+    <article className="rounded-[20px] border border-[#ece0d0] bg-[#fffdf9] px-4 py-5 shadow-[0_4px_16px_-12px_rgba(120,90,60,0.5)] sm:px-[22px]">
       <div className="mb-[14px] flex items-center gap-3">
         <div
           className={[
@@ -77,13 +77,13 @@ export function FeedPostCard({ post }: FeedPostCardProps) {
       <p className="text-[15.5px] leading-[1.55] text-[#4a4038]">{post.body}</p>
 
       {post.hasPhotoPlaceholder ? (
-        <div className="mt-[14px] flex h-[200px] flex-col items-center justify-center gap-2 rounded-2xl border-[1.5px] border-dashed border-[#dbcdbA] bg-[#f4ece1] text-[#b0a290]">
+        <div className="mt-[14px] flex h-[200px] flex-col items-center justify-center gap-2 rounded-2xl border-[1.5px] border-dashed border-[#dbcdba] bg-[#f4ece1] text-center text-[#b0a290]">
           <PhotoPlaceholderIcon className="size-[30px]" />
           <span className="text-[13.5px]">{post.photoLabel}</span>
         </div>
       ) : null}
 
-      <div className="mt-4 flex items-center gap-[18px] border-t border-[#f0e6d8] pt-[14px]">
+      <div className="mt-4 flex flex-wrap items-center gap-x-[18px] gap-y-3 border-t border-[#f0e6d8] pt-[14px]">
         <span className="flex items-center gap-[7px] text-sm font-bold text-[#e0654a]">
           <HeartIcon className="size-[19px]" />
           {post.likes}
@@ -94,7 +94,7 @@ export function FeedPostCard({ post }: FeedPostCardProps) {
           {post.comments}
         </span>
 
-        <span className="flex-1" />
+        <span className="hidden flex-1 sm:block" />
 
         {post.canEdit ? <button type="button" className="text-sm font-extrabold text-[#c5503a]">Editar</button> : null}
       </div>

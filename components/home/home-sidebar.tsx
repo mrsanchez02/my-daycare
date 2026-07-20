@@ -26,7 +26,7 @@ const navIcons = {
 
 export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, compact = false }: HomeSidebarProps) {
   return (
-    <div className="flex w-full flex-col gap-4">
+    <div className={["flex w-full flex-col", compact ? "gap-3" : "gap-4"].join(" ")}>
       <div className={compact ? "flex items-center justify-between gap-3" : "flex items-center gap-3 px-2 pb-2"}>
         <div className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-linear-to-br from-[#f8c3a8] to-[#f2937a] text-white">
@@ -62,7 +62,7 @@ export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, co
         </button>
       )}
 
-      <nav className={compact ? "flex items-center gap-2 overflow-x-auto pb-1" : "flex flex-1 flex-col gap-1"} aria-label="Navegación principal">
+      <nav className={compact ? "flex items-center gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" : "flex flex-1 flex-col gap-1"} aria-label="Navegación principal">
         {navItems.map((item) => {
           const Icon = navIcons[item.id as keyof typeof navIcons];
 
@@ -72,7 +72,7 @@ export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, co
               type="button"
               className={[
                 "flex items-center gap-3 rounded-xl px-3 py-[11px] text-[14.5px]",
-                compact ? "shrink-0" : "w-full",
+                compact ? "shrink-0 whitespace-nowrap border border-[#ead9c6] bg-[#fffdf9]" : "w-full",
                 item.isActive
                   ? "bg-[#fbe3d8] font-extrabold text-[#d9583c]"
                   : "bg-transparent font-semibold text-[#6e6359]",
@@ -108,7 +108,7 @@ export function HomeSidebar({ schoolLabel, classroomLabel, teacher, navItems, co
         </div>
       )}
 
-      {compact ? <div className="text-[11px] font-extrabold tracking-[0.08em] text-[#b59c84]">{schoolLabel.toUpperCase()}</div> : null}
+      {compact ? <div className="px-0.5 text-[11px] font-extrabold tracking-[0.08em] text-[#b59c84]">{schoolLabel.toUpperCase()}</div> : null}
     </div>
   );
 }

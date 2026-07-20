@@ -13,9 +13,11 @@ export function HomeShell({ sidebar, mobileSidebar, children }: HomeShellProps) 
         {sidebar}
       </aside>
 
-      <main className="min-w-0 flex-1">
-        <div className="border-b border-[#ece0d0] bg-[#fff7ef] px-4 py-3 lg:hidden">{mobileSidebar}</div>
-        <div className="mx-auto w-full max-w-[760px] px-4 py-8 pb-20 sm:px-6 lg:px-10 lg:pt-[34px]">
+      <main className="min-w-0 flex-1 lg:h-screen lg:overflow-y-auto">
+        <div className="border-b border-[#ece0d0] bg-[#fff7ef] px-4 py-3 shadow-[0_4px_14px_-12px_rgba(120,90,60,0.4)] lg:hidden">
+          {mobileSidebar}
+        </div>
+        <div className="mx-auto w-full max-w-[760px] px-4 py-6 pb-20 sm:px-6 sm:py-8 lg:px-10 lg:pt-[34px] lg:pb-20">
           {children}
         </div>
       </main>

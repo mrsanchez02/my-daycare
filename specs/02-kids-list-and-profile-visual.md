@@ -107,23 +107,23 @@ Convenciones:
 
 ## Acceptance criteria
 
-- [ ] La ruta `/` mantiene el home existente y ahora permite navegar realmente a `/kids`.
-- [ ] La ruta `/kids` renderiza una versión visual en Next.js inspirada en `references/pantallas/ninos.dc.html`.
-- [ ] La ruta `/kids/[id]` renderiza una versión visual en Next.js inspirada en `references/pantallas/perfil-nino.dc.html`.
-- [ ] La navegación lateral reutiliza el componente compartido existente y muestra el estado activo correcto al menos en `/` y `/kids`.
-- [ ] El contenido mock de niños vive en `data/mock-kids.ts` y no queda duplicado inline en múltiples componentes o rutas.
-- [ ] Cada niño mock tiene un `slug` único y legible separado del nombre visible.
-- [ ] Cada tarjeta de `/kids` navega al perfil correcto usando su `slug`.
-- [ ] El enlace “Volver a niños” desde `/kids/[id]` navega a `/kids`.
-- [ ] La búsqueda en `/kids` filtra localmente por nombre sobre los datos mock.
-- [ ] Cuando una búsqueda no encuentra coincidencias, la pantalla muestra una lista vacía con un mensaje simple y sin errores de render.
-- [ ] Si se accede a un `slug` inexistente en `/kids/[id]`, la ruta responde con `notFound()`.
-- [ ] Las acciones secundarias del perfil como `Editar`, `Resumen del día` y `Vincular otro padre` se muestran solo como elementos visuales y no abren nuevas rutas funcionales dentro de esta spec.
-- [ ] En escritorio, `/kids` y `/kids/[id]` conservan una fidelidad visual alta respecto a las referencias provistas.
-- [ ] En móvil, `/kids` y `/kids/[id]` presentan una adaptación usable sin desbordes ni solapamientos graves.
-- [ ] `npm run lint` finaliza sin errores.
-- [ ] `npx tsc --noEmit` finaliza sin errores.
-- [ ] `npm run build` finaliza sin errores.
+- [x] La ruta `/` mantiene el home existente y ahora permite navegar realmente a `/kids`.
+- [x] La ruta `/kids` renderiza una versión visual en Next.js inspirada en `references/pantallas/ninos.dc.html`.
+- [x] La ruta `/kids/[id]` renderiza una versión visual en Next.js inspirada en `references/pantallas/perfil-nino.dc.html`.
+- [x] La navegación lateral reutiliza el componente compartido existente y muestra el estado activo correcto al menos en `/` y `/kids`.
+- [x] El contenido mock de niños vive en `data/mock-kids.ts` y no queda duplicado inline en múltiples componentes o rutas.
+- [x] Cada niño mock tiene un `slug` único y legible separado del nombre visible.
+- [x] Cada tarjeta de `/kids` navega al perfil correcto usando su `slug`.
+- [x] El enlace “Volver a niños” desde `/kids/[id]` navega a `/kids`.
+- [x] La búsqueda en `/kids` filtra localmente por nombre sobre los datos mock.
+- [x] Cuando una búsqueda no encuentra coincidencias, la pantalla muestra una lista vacía con un mensaje simple y sin errores de render.
+- [x] Si se accede a un `slug` inexistente en `/kids/[id]`, la ruta responde con `notFound()`.
+- [x] Las acciones secundarias del perfil como `Editar`, `Resumen del día` y `Vincular otro padre` se muestran solo como elementos visuales y no abren nuevas rutas funcionales dentro de esta spec.
+- [x] En escritorio, `/kids` y `/kids/[id]` conservan una fidelidad visual alta respecto a las referencias provistas.
+- [x] En móvil, `/kids` y `/kids/[id]` presentan una adaptación usable sin desbordes ni solapamientos graves.
+- [x] `npm run lint` finaliza sin errores.
+- [x] `npx tsc --noEmit` finaliza sin errores.
+- [x] `npm run build` finaliza sin errores.
 
 ## Decisions
 
